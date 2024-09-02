@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: django-deployment
-  namespace: test
 spec:
   replicas: 1
   selector:
@@ -14,11 +13,10 @@ spec:
         app: django-deployment
     spec:
       containers:
-        - name: teste
-          image: 391486104729.dkr.ecr.us-east-1.amazonaws.com/teste:latest
+        - name: django
+          image: //ECR-image
           ports:
-            - name: http
-              containerPort: 8080
+            - containerPort: 80
           resources:
             requests:
               cpu: 100m
